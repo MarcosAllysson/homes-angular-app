@@ -1,0 +1,19 @@
+<section class="listing">
+  <img
+    [src]="housingLocation.photo"
+    alt="Exterior photo of {{ housingLocation.name }}"
+    class="listing-photo"
+  />
+  <h2 class="listing-heading">{{ housingLocation.name }}</h2>
+  <p class="listing-location">
+    {{ housingLocation.city }}, {{ housingLocation.state }}
+  </p>
+
+  <!-- it just goes directly to detail's page -->
+  <!-- <a routerLink="details">Learn more</a> -->
+
+  <!-- in case its necessary to pass some info, like id: -->
+  <!-- just hovering on learn more liks, its possible to see the ID -->
+  <!-- to make it work, update routes.ts to match the url: /details/ID -->
+  <a [routerLink]="['/details', housingLocation.id]">Learn more</a>
+</section>

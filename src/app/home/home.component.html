@@ -1,0 +1,26 @@
+<section>
+  <form>
+    <!-- #filter: to allow to get the info with the component -->
+    <input type="text" placeholder="Filter by city" #filter />
+
+    <button class="primary" type="button" (click)="filterResults(filter.value)">
+      Search
+    </button>
+  </form>
+</section>
+
+<section class="results">
+  <!-- WITHOUT FILTER -->
+
+  <!-- <app-housing-location
+    *ngFor="let housingLocation of housingLocationList"
+    [housingLocation]="housingLocation"
+  ></app-housing-location> -->
+
+  <!-- WITH FILTER -->
+  <app-housing-location
+    *ngFor="let housingLocation of filteredLocationList"
+    [housingLocation]="housingLocation"
+  ></app-housing-location>
+  <!-- (someValueOutput)="print($event)" -->
+</section>

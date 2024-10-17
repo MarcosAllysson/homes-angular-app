@@ -1,0 +1,54 @@
+<!-- <p>details id {{ housingLocation?.id }}</p> -->
+
+<article>
+  <img [src]="housingLocation?.photo" alt="" class="listing-photo" />
+
+  <section class="listing-description">
+    <h2 class="listing-heading">{{ housingLocation?.name }}</h2>
+    <p class="listing-location">
+      {{ housingLocation?.city }}, {{ housingLocation?.state }}
+    </p>
+  </section>
+
+  <section class="listing-features">
+    <h2 class="section-heading">About this location</h2>
+
+    <ul>
+      <li>Units available: {{ housingLocation?.availableUnits }}</li>
+      <li>Does this location have Wi-FI: {{ housingLocation?.wifi }}</li>
+      <li>Does this location have laundry: {{ housingLocation?.laundry }}</li>
+    </ul>
+  </section>
+
+  <section>
+    <button
+      type="button"
+      id="delete-button"
+      (click)="deleteHousingLocationById(housingLocation?.id)"
+    >
+      Delete Location
+    </button>
+  </section>
+
+  <section class="listing-apply">
+    <h2 class="section-heading">Apply now to live here</h2>
+    <!-- <button type="button" class="primary">Apply now</button> -->
+
+    <form [formGroup]="applyForm" (submit)="submitApplication()">
+      <label for="first-name">First Name</label>
+      <input type="text" formControlName="firsName" id="first-name" />
+
+      <!-- <label id="last-name">Last Name</label> -->
+      <label for="last-name">Last Name</label>
+      <input type="text" formControlName="lastName" id="last-name" />
+
+      <label for="email">Email</label>
+      <input type="email" formControlName="email" id="email" />
+
+      <button type="submit" [disabled]="!applyForm.valid">
+        <!-- class="primary" -->
+        Apply Now
+      </button>
+    </form>
+  </section>
+</article>
